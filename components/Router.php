@@ -3,7 +3,7 @@
 
 class Router
 {
-    private $routes;
+    //private $routes;
 
     public function __construct()
     {
