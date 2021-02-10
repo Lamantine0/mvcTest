@@ -3,17 +3,36 @@
 
 class Router
 {
-    //private $routes;
+    private $routes;
 
     public function __construct()
     {
+        $routesPath = ROOT.'/config/routes.php';
+        $this->routes = include($routesPath);
     }
+
+    // Возврат строки
+    private function getURl(){
+
+        if(!empty($_SERVER['REQUEST_URI'])){
+            $url = trim($_SERVER['REQUEST_URI'], '/news');
+        }
+
+
+    }
+
+
 
     public function run()
     {
+        $url = $this->getURl();
+        echo $url;
 
-        echo "Class Router method run";
+        foreach ($this->routes as $uriPattern => $path){
 
+            echo '<br>$uriPattern => $path ';
+        }
     }
 
 }
+
