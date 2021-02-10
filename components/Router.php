@@ -15,7 +15,7 @@ class Router
     private function getURl(){
 
         if(!empty($_SERVER['REQUEST_URI'])){
-            $url = trim($_SERVER['REQUEST_URI'], '/news');
+            return trim($_SERVER['REQUEST_URI'], '/news');
         }
 
 
@@ -30,9 +30,14 @@ class Router
 
         foreach ($this->routes as $uriPattern => $path){
 
-            echo '<br>$uriPattern => $path ';
+        }
+
+        if(preg_match("~$uriPattern~", $url)){
+            echo "+";
         }
     }
+
+
 
 }
 
