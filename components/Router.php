@@ -29,6 +29,7 @@ class Router
         echo $url;
 
         foreach ($this->routes as $uriPattern => $path){
+            echo "<br> $uriPattern->$path";
 
         }
 
